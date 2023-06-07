@@ -1,0 +1,37 @@
+body {
+	background-image: url('https://kartinkin.net/uploads/posts/2021-07/1627135437_5-kartinkin-com-p-anime-piksel-fon-anime-krasivo-7.png');
+
+  height: 650px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+#wrapper {
+	margin-top: 10% !important;
+}
+#content {
+	background: beige;
+	padding: 25px;
+}
+#content > h2 {
+	font-size: 18px;
+	text-align: center;
+	padding-top: 0;
+}
+.t10 {
+	margin-top: 10px;
+}
+.t20 {
+	margin-top: 20px;
+}
+.todo-completed {
+	text-decoration: line-through;
+	background: rgba(149, 165, 166, .3);
+}
+footer {
+	margin-top: 20px;
+	color: white;
+}
+.list-group-item {
+	color: black;
+}

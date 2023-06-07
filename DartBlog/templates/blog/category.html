@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="blog-post-area">
+    <div class="container">
+        <div class="row">
+            <div class="blog-post-area-style">
+                {% for i in posts %}
+                <div class="col-md-12">
+                    <div class="single-post-big">
+                        <div class="big-image">
+                            <img src="{{ i.photo.url }}"  alt="">
+                        </div>
+                        <div class="big-text">
+                            <h3><a href="#">{{ i.title }}.</a></h3>
+                            <p>{{ i.content }}</p>
+                            <h4><span class="date">{{ i.created_at }}</span><span class="author">Posted By: <span
+                                    class="author-name">{{ i.author }}</span></span>
+                            </h4>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pegination">
+        <div class="nav-links">
+            <span class="page-numbers current">1</span>
+            <a class="page-numbers" href="#">2</a>
+            <a class="page-numbers" href="#">3</a>
+            <a class="page-numbers" href="#">4</a>
+            <a class="page-numbers" href="#">5</a>
+            <a class="page-numbers" href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</section>
+{% endblock %}

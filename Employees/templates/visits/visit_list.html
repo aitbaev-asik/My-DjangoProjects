@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{%block title%}Visit Employeers{%endblock title%}
+
+{% block content %}
+  <h1>Visits</h1>
+  <a href="{% url 'visit_new' %}">Add New Visit</a>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Employee</th>
+      <th>Visited?</th>
+      <th>Time Visit Start</th>
+      <th>Time Visit End</th>
+      <th>Reason</th>
+      <th>Edit</th>
+      <th>Delete</th>
+
+    {% for visit in visits %}
+      <tr>
+        <td>{{ visit.date}}</td>
+        <td>{{ visit.employee}}</td>
+        <td>{{ visit.visited}}</td>
+        <td>{{ visit.time_visit_start}}</td>
+        <td>{{ visit.time_visit_end}}</td>
+        <td>{{ visit.reason}}</td>
+        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><a href="{% url 'edit_visit' visit.id %}"
+                                                                          class="btn btn-primary btn-xs"
+                                                                          data-title="Edit" data-toggle="modal"
+                                                                          data-target="#edit"><span
+                class="glyphicon glyphicon-pencil"></span></a></p></td>
+        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="{% url 'delete_visit' visit.id %}"
+                                                                            class="btn btn-danger btn-xs"
+                                                                            data-title="Delete"
+                                                                            data-toggle="modal"
+                                                                            data-target="#delete"><span
+                class="glyphicon glyphicon-trash"></span></a></p></td>
+    </tr>
+    {% endfor %}
+{% endblock %}

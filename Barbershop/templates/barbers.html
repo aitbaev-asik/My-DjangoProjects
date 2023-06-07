@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidebar %}
+<li><a href="{% url 'index' %}">Home</a></li>
+<li><a href="{% url 'about' %}">About Us</a></li>
+<li><a href="{% url 'services' %}">Our Services</a></li>
+<li><a class="active" href="{% url 'barbers' %}">Our Barbers</a></li>
+<li><a href="{% url 'appointment' %}">Appointment</a></li>
+<li><a href="{% url 'contact' %}">Contact</a></li>
+{% endblock %}
+
+{% block content %}
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <a href="#menu-toggle" class="menuopener" id="menu-toggle"><i class="fa fa-bars"></i></a>
+
+            <div class="all-page-bar">
+    <div class="container">
+     <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+       <div class="title title-1 text-center">
+        <div class="title--heading">
+         <h1>Our Barbers</h1>
+        </div>
+        <div class="clearfix"></div>
+        <ol class="breadcrumb">
+         <li><a href="index-3.html">Home</a></li>
+         <li class="active">Our Barbers</li>
+        </ol>
+        <div class="much">
+         <img src="{% static 'uploads/mustache.png' %}" alt=""/>
+        </div>
+       </div>
+       <!-- .title end -->
+      </div>
+     </div>
+    </div>
+   </div><!-- end all-page-bar -->
+
+            <section class="section nopad cac text-center">
+                <a href="#"><h3>Interesting our awesome barber services? Just drop an appointment form below!</h3></a>
+            </section>
+
+            <div id="barbers" class="section lb">
+                <div class="container-fluid">
+                    <div class="section-title row text-center">
+                        <div class="col-md-8 col-md-offset-2">
+                        <small>MEET OUR BABRER TEAM</small>
+                        <h3>OUR BARBERS</h3>
+                        <hr class="grd1">
+                        <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+                        </div>
+                    </div><!-- end title -->
+
+                    <div class="row dev-list text-center">
+                              {% for barber in barbers %}
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+                                <div class="widget clearfix">
+                                <div class="hover-br">
+                                 <img src="{{ barber.image.url }}" alt="" class="img-responsive">
+                                 <div class="social-up-hover">
+                                  <div class="footer-social">
+                                   <a href="{{ barber.facebook }}" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                                   <a href="{{ barber.instagram }}" class="btn grd1"><i class="fa fa-instagram"></i></a>
+                                  </div>
+                                 </div>
+                                </div>
+                                <div class="widget-title">
+                                    <h3>{{ barber.full_name }}</h3>
+                                    <small>{{ barber.position }}</small>
+                                </div>
+                                <!-- end title -->
+                                <p>{{ barber.about }}</p>
+
+
+                            </div><!--widget -->
+                        </div><!-- end col -->
+                       {% endfor %}
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div><!-- end section -->
+ {% endblock %}

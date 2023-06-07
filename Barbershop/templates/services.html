@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidebar%}
+<li><a href="{% url 'index' %}">Home</a></li>
+<li><a href="{% url 'about' %}">About Us</a></li>
+<li><a class="active" href="{% url 'services' %}">Our Services</a></li>
+<li><a href="{% url 'barbers' %}">Our Barbers</a></li>
+<li><a href="{% url 'appointment' %}">Appointment</a></li>
+<li><a href="{% url 'contact' %}">Contact</a></li>
+{% endblock %}
+
+
+{% block content %}
+<!-- Page Content -->
+<div id="page-content-wrapper">
+    <a href="#menu-toggle" class="menuopener" id="menu-toggle"><i class="fa fa-bars"></i></a>
+
+    <div class="all-page-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="title title-1 text-center">
+                        <div class="title--heading">
+                            <h1>Our Services</h1>
+                        </div>
+                        <div class="clearfix"></div>
+                        <ol class="breadcrumb">
+                            <li><a href="index-3.html">Home</a></li>
+                            <li class="active">Our Services</li>
+                        </ol>
+                        <div class="much">
+                            <img src="{% static 'uploads/mustache.png' %}" alt=""/>
+                        </div>
+                    </div>
+                    <!-- .title end -->
+                </div>
+            </div>
+        </div>
+    </div><!-- end all-page-bar -->
+
+    <section class="section nopad cac text-center">
+        <a href="#"><h3>Interesting our awesome barber services? Just drop an appointment form below!</h3></a>
+    </section>
+
+    <div id="services" class="section lb">
+        <div class="container-fluid">
+            <div class="section-title row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                <small>WELCOME TO THE OUR BARBER SHOP</small>
+                <h3>OUR SERVICES</h3>
+                <hr class="grd1">
+                <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+                </div>
+            </div><!-- end title -->
+
+            <div class="row">
+                <div class="col-md-6">
+                    {% for service in services_1 %}
+                    <div class="service-wrap clearfix">
+                        <img src="{{ service.image.url }}" alt="" class="img-responsive img-rounded alignleft">
+                        <h4>{{ service.title }}</h4>
+                        <p>{{ service.description }}</p>
+                    </div><!-- end issue -->
+                    {% endfor %}
+                </div><!-- end col -->
+
+                <div class="col-md-6">
+                    {% for service in services_2 %}
+                    <div class="service-wrap clearfix">
+                        <img src="{{ service.image.url }}" alt="" class="img-responsive img-rounded alignleft">
+                        <h4>{{ service.title }}</h4>
+                        <p>{{ service.description }}</p>
+                    </div><!-- end issue -->
+                    {% endfor %}
+                </div><!-- end col -->
+            </div>
+
+            <hr class="invis4">
+
+            <div class="text-center">
+                <a href="{% url 'appointment' %}" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">APPOINTMENT NOW</a>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+</div>
+{% endblock %}

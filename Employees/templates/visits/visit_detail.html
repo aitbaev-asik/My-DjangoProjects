@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %} Detail visit {% endblock title %}
+
+{% block content %}
+<h1>Визиты</h1>
+<div class="container_info">
+    <div class="employee-info">
+        <div>
+            <p><strong>Сотрудник:</strong> {{ visit.employee }}</p>
+            <p><strong>Дата:</strong> {{ visit.date }}</p>
+            <p><strong>Причина:</strong> {{ visit.reason }}</p>
+
+            <a href="{% url 'edit_visit'  visit.id  %}"
+               class="btn btn-primary btn-xs"
+               data-title="Edit" data-toggle="modal"
+               data-target="#edit">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <a href="{% url 'delete_visit'  visit.id  %}"
+               class="btn btn-danger btn-xs"
+               data-title="Delete"
+               data-toggle="modal"
+               data-target="#delete">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
